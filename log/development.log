@@ -40,3 +40,57 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Title Goes Here"], ["description", "Description..."], ["created_at", "2018-05-22 17:36:39.528801"], ["updated_at", "2018-05-22 17:36:39.528801"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+
+
+Started GET "/" for ::1 at 2018-05-22 13:45:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 30ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2018-05-22 13:45:55 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 545ms (Views: 539.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-05-22 13:45:56 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-05-22 13:45:56 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2018-05-22 13:45:56 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2018-05-22 13:45:56 -0400
+
+
+Started GET "/posts/new" for ::1 at 2018-05-22 13:46:08 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-05-22 13:46:16 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1Xih2PNghfvPBHZs01SBXuDzdnDauZzwi2wUASJe2bGdSvD3l1ONI9YNzCMHrDxk8r+RwMnLZTTVaf7pL7A2xQ==", "title"=>"hrere", "description"=>"sgsdg", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "hrere"], ["description", "sgsdg"], ["created_at", "2018-05-22 17:46:16.042284"], ["updated_at", "2018-05-22 17:46:16.042284"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 12ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-05-22 13:46:16 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (1.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 43ms (Views: 28.1ms | ActiveRecord: 1.4ms)
